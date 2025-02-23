@@ -13,11 +13,11 @@ public:
         this->price = price;
     }
 
-    void setNumber() {
+    void setNumber(int number_id) {
         this->number_id = number_id;
     }
 
-    void setPrice() {
+    void setPrice(double price) {
         this->price = price;
     }
 
@@ -39,7 +39,7 @@ private:
     Order* obj;
     list<Customer> li;
 public:
-    Customer(Order* obj) {
+    explicit Customer(Order* obj) {
         this->obj = obj;
     }
 
@@ -65,7 +65,7 @@ public:
     }
 
     double sum_price() {
-        double sum = 0;
+        double sum = obj->getPrice();
         for (auto& Customer : li) {
             sum += Customer.obj->getPrice();
         }
@@ -77,6 +77,7 @@ public:
             Customer.show_info_order();
         }
     }
+
 };
 
 int main()
